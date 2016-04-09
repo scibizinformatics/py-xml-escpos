@@ -47,7 +47,7 @@ class StyleStack:
             'bold':      'off',
             'size':      'normal',
             'font'  :    'a',
-            'width':     48,
+            'width':     32,
             'indent':    0,
             'tabwidth':  2,
             'bullet':    ' - ',
