@@ -694,6 +694,7 @@ class Escpos:
             stylestack      = StyleStack() 
             serializer      = XmlSerializer(self)
             root            = ET.fromstring(xml.encode('utf-8'))
+            self.slip_sheet_mode = False
             if 'sheet' in root.attrib and root.attrib['sheet'] == 'slip':
                 self._raw(SHEET_SLIP_MODE)
                 self.slip_sheet_mode = True
