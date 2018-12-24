@@ -5,7 +5,7 @@ import copy
 import io
 import base64
 import math
-import md5
+import hashlib
 import re
 import traceback
 import xml.etree.ElementTree as ET
@@ -433,7 +433,7 @@ class Escpos:
 
         print('print_b64_img')
 
-        id = md5.new(img).digest()
+        id = hashlib.md5(img.encode()).hexdigest()
 
         if id not in self.img_cache:
             print('not in cache')
