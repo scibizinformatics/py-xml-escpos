@@ -47,13 +47,13 @@ try:
     pp.pprint(printer.get_printer_status())
 
 except NoDeviceError as e:
-    print "No device found %s" %str(e)
+    print("No device found %s" %str(e))
 except HandleDeviceError as e:
-    print "Impossible to handle the device due to previous error %s" % str(e)
+    print("Impossible to handle the device due to previous error %s" % str(e))
 except TicketNotPrinted as e:
-    print "The ticket does not seems to have been fully printed %s" % str(e)
+    print("The ticket does not seems to have been fully printed %s" % str(e))
 except NoStatusError as e:
-    print "Impossible to get the status of the printer %s" % str(e)
+    print("Impossible to get the status of the printer %s" % str(e))
 finally:
     printer.close()
 

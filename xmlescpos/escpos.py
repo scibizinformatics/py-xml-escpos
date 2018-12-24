@@ -147,7 +147,7 @@ class StyleStack:
         _style = {}
         for attr in style:
             if attr in self.cmds and not style[attr] in self.cmds[attr]:
-                print 'WARNING: ESC/POS PRINTING: ignoring invalid value: '+utfstr(style[attr])+' for style: '+utfstr(attr)
+                print('WARNING: ESC/POS PRINTING: ignoring invalid value: '+utfstr(style[attr])+' for style: '+utfstr(attr))
             else:
                 _style[attr] = self.enforce_type(attr, style[attr])
         self.stack.append(_style)
@@ -431,12 +431,12 @@ class Escpos:
 
     def print_base64_image(self,img):
 
-        print 'print_b64_img'
+        print('print_b64_img')
 
         id = md5.new(img).digest()
 
         if id not in self.img_cache:
-            print 'not in cache'
+            print('not in cache')
 
             img = img[img.find(',')+1:]
             f = io.BytesIO('img')
@@ -451,16 +451,16 @@ class Escpos:
             else:
                 img.paste(img_rgba)
 
-            print 'convert image'
+            print('convert image')
         
             pix_line, img_size = self._convert_image(img)
 
-            print 'print image'
+            print('print image')
 
             buffer = self._raw_print_image(pix_line, img_size)
             self.img_cache[id] = buffer
 
-        print 'raw image'
+        print('raw image')
 
         self._raw(self.img_cache[id])
 
